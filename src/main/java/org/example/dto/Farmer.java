@@ -15,3 +15,4 @@ public class Farmer {
     private String city;
     private String divisionName;
 }
+

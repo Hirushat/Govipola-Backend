@@ -19,7 +19,7 @@ public class FarmerServiceImpl implements FarmerService {
 
     @Override
     public List<FarmerEntity> getFarmers() {
-        return List.of();
+        return repository.findAll();
     }
 
     @Override
