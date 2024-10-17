@@ -18,6 +18,19 @@ public class RiceEntity {
 
     private String type;
 
+    // Price from Farmer
+    @Column(name = "price_from_farmer")
+    private Float priceFromFarmer;
+
+    // Price from Middleman
+    @Column(name = "price_from_middleman")
+    private Float priceFromMiddleman;
+
+    // Price from Miller
+    @Column(name = "price_from_miller")
+    private Float priceFromMiller;
+
+    // Relationships to the respective entities
     @ManyToOne
     @JoinColumn(name = "farmerID")
     private FarmerEntity farmer;
@@ -29,6 +42,5 @@ public class RiceEntity {
     @ManyToOne
     @JoinColumn(name = "millerID")
     private MillerEntity miller;
-
 
 }

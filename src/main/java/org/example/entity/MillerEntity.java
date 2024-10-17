@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,4 +26,7 @@ public class MillerEntity {
     private String divisionName;
     private String passWord;
     private Float stockInKg;
+
+    @OneToMany(mappedBy = "miller")
+    private List<RiceEntity> riceEntities;
 }
