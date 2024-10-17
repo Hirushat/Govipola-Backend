@@ -1,9 +1,10 @@
 package org.example.repository;
 
-import org.example.entity.FarmerEntity;
+import org.example.dto.Miller;
+import org.example.entity.MillerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FarmerRepository extends JpaRepository<FarmerEntity, Long> {
+public interface MillerRepository extends JpaRepository<MillerEntity, Long> {
 }

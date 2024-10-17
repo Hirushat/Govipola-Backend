@@ -1,19 +1,15 @@
 package org.example.service;
 
-import org.example.dto.Farmer;
 import org.example.entity.FarmerEntity;
 
 import java.util.List;
 
 public interface FarmerService {
+    public List<FarmerEntity> getAllFarmers();
 
-    List<FarmerEntity> getFarmers();
+    public FarmerEntity getFarmerById(Long id);
 
-    boolean addFarmer(Farmer farmer);
+    public FarmerEntity saveFarmer(FarmerEntity farmer);
 
-    void deleteById(Long id);
-
-    Farmer findByUserName(String username);
-
-    Boolean isExistUser(String userName);
+    public void deleteFarmer(Long id);
 }

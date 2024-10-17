@@ -1,11 +1,9 @@
 package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.example.dto.Farmer;
 import org.example.entity.FarmerEntity;
 import org.example.repository.FarmerRepository;
 import org.example.service.FarmerService;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,37 +11,26 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class FarmerServiceImpl implements FarmerService {
-    private final FarmerRepository repository;
-    final ModelMapper mapper;
 
+    private final FarmerRepository farmerRepository;
 
     @Override
-    public List<FarmerEntity> getFarmers() {
-        return repository.findAll();
+    public List<FarmerEntity> getAllFarmers() {
+        return  farmerRepository.findAll();
     }
 
     @Override
-    public boolean addFarmer(Farmer farmer) {
-        if (farmer != null) {
-            repository.save(mapper.map(farmer, FarmerEntity.class));
-            return true;
-        }else {
-            return false;
-        }
+    public FarmerEntity getFarmerById(Long id) {
+        return farmerRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void deleteById(Long id) {
-        repository.deleteById(id);
+    public FarmerEntity saveFarmer(FarmerEntity farmer) {
+        return farmerRepository.save(farmer);
     }
 
     @Override
-    public Farmer findByUserName(String userName) {
-        return mapper.map(repository.findByUserName(userName), Farmer.class);
-    }
-
-    @Override
-    public Boolean isExistUser(String userName) {
-        return repository.existsByUserName(userName);
+    public void deleteFarmer(Long id) {
+        farmerRepository.deleteById(id);
     }
 }

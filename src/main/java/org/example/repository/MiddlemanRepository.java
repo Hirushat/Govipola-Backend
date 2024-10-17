@@ -1,9 +1,9 @@
 package org.example.repository;
 
-import org.example.entity.FarmerEntity;
+import org.example.entity.MiddlemanEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FarmerRepository extends JpaRepository<FarmerEntity, Long> {
+public interface MiddlemanRepository  extends JpaRepository<MiddlemanEntity, Long> {
 }

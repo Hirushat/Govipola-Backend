@@ -1,6 +1,9 @@
 package org.example.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,11 +12,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "farmer_entity")
-public class FarmerEntity {
+public class MiddlemanEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long farmerID;
+    private Long middlemanID;
 
     private String name;
     private String userName;
@@ -23,5 +25,4 @@ public class FarmerEntity {
     private String divisionName;
     private String passWord;
     private Float stockInKg;
-
 }

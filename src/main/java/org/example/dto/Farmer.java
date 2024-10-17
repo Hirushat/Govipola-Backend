@@ -7,12 +7,16 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Farmer {
-    private String name;
-    private String userName;
-    private String address;
-    private String phoneNumber;
-    private String city;
-    private String divisionName;
-}
 
+public class Farmer {
+
+        private String name;
+        private String userName;
+        private String address;
+        private String phoneNumber;
+        private String city;
+        private String divisionName;
+        private String passWord;
+        private Float stockInKg;
+
+}

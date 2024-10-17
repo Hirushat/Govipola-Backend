@@ -1,6 +1,5 @@
-package org.example.entity;
+package org.example.dto;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,13 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "farmer_entity")
-public class FarmerEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long farmerID;
-
+public class Miller {
     private String name;
     private String userName;
     private String address;
@@ -23,5 +16,4 @@ public class FarmerEntity {
     private String divisionName;
     private String passWord;
     private Float stockInKg;
-
 }

@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "farmer_entity")
-public class FarmerEntity {
+public class UserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long farmerID;
+    private Long id;
 
     private String name;
     private String userName;
@@ -22,6 +22,5 @@ public class FarmerEntity {
     private String city;
     private String divisionName;
     private String passWord;
-    private Float stockInKg;
-
+    private String userType;
 }
