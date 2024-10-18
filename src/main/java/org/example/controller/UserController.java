@@ -40,7 +40,7 @@ public class UserController {
         service.deleteById(id);
     }
     @GetMapping("/find-by-username/{username}")
-    public User findUserByUsername(@PathVariable String username){
+    public UserEntity findUserByUsername(@PathVariable String username){
         return service.findByUserName(username);
     }
     @GetMapping("/is-exist-user/{userName}")

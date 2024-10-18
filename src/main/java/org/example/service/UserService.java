@@ -17,7 +17,7 @@ public interface UserService {
 
     void deleteById(Long id);
 
-    User findByUserName(String username);
+    UserEntity findByUserName(String username);
 
     Boolean isExistUser(String userName);
 }

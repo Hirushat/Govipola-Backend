@@ -73,8 +73,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findByUserName(String userName) {
-        return mapper.map(repository.findByUserName(userName), User.class);
+    public UserEntity findByUserName(String userName) {
+        return repository.findByUserName(userName);
     }
 
     @Override
