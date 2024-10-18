@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.dto.Farmer;
 import org.example.entity.FarmerEntity;
 import org.example.service.FarmerService;
 import org.springframework.web.bind.annotation.*;
@@ -13,29 +14,33 @@ import java.util.List;
 @CrossOrigin
 public class FarmerController {
 
-    private FarmerService farmerService;
+    private final FarmerService farmerService;
 
     @GetMapping("/get-all")
     public List<FarmerEntity> getAllFarmers() {
         return farmerService.getAllFarmers();
     }
 
-    @GetMapping("get/{id}")
-    public FarmerEntity getFarmerById(@PathVariable Long id) {
+    @GetMapping("get-by-id/{id}")
+    public Farmer getFarmerById(@PathVariable Long id) {
         return farmerService.getFarmerById(id);
     }
 
+    @GetMapping("get-by-username/{username}")
+    public Farmer getFarmerByUsername(@PathVariable String username) {
+        return farmerService.getFarmerByUserName(username);
+    }
+
     @PostMapping("/add")
-    public FarmerEntity createFarmer(@RequestBody FarmerEntity farmer) {
+    public boolean createFarmer(@RequestBody Farmer farmer) {
         return farmerService.saveFarmer(farmer);
     }
 
     @PutMapping("/update/{id}")
-    public FarmerEntity updateFarmer(@PathVariable Long id, @RequestBody FarmerEntity farmer) {
-        FarmerEntity existingFarmer = farmerService.getFarmerById(id);
+    public boolean updateFarmer(@PathVariable Long id, @RequestBody Farmer farmer) {
+        Farmer existingFarmer = farmerService.getFarmerById(id);
         if (existingFarmer != null) {
             existingFarmer.setName(farmer.getName());
-            existingFarmer.setUserName(farmer.getUserName());
             existingFarmer.setPhoneNumber(farmer.getPhoneNumber());
             existingFarmer.setAddress(farmer.getAddress());
             existingFarmer.setDivisionName(farmer.getDivisionName());
@@ -44,7 +49,7 @@ public class FarmerController {
             existingFarmer.setCity(farmer.getCity());
             return farmerService.saveFarmer(existingFarmer);
         } else {
-            return null;
+            return false;
         }
     }
 

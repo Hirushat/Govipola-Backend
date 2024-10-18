@@ -2,6 +2,7 @@ package org.example.controller;
 
 
 import lombok.RequiredArgsConstructor;
+import org.example.dto.Miller;
 import org.example.entity.MillerEntity;
 import org.example.service.MillerService;
 import org.springframework.web.bind.annotation.*;
@@ -22,18 +23,18 @@ public class MillerController {
     }
 
     @GetMapping("byid/{id}")
-    public MillerEntity getMillerById(@PathVariable Long id) {
+    public Miller getMillerById(@PathVariable Long id) {
         return millerService.getMillerById(id);
     }
 
     @PostMapping("/add")
-    public MillerEntity createMiller(@RequestBody MillerEntity miller) {
+    public boolean createMiller(@RequestBody Miller miller) {
         return millerService.saveMiller(miller);
     }
 
     @PutMapping("update/{id}")
-    public MillerEntity updateMiller(@PathVariable Long id, @RequestBody MillerEntity miller) {
-        MillerEntity existingMiller = millerService.getMillerById(id);
+    public boolean updateMiller(@PathVariable Long id, @RequestBody MillerEntity miller) {
+        Miller existingMiller = millerService.getMillerById(id);
         if (existingMiller != null) {
             existingMiller.setName(miller.getName());
             existingMiller.setUserName(miller.getUserName());
@@ -45,7 +46,7 @@ public class MillerController {
             existingMiller.setCity(miller.getCity());
             return millerService.saveMiller(existingMiller);
         } else {
-            return null;
+            return false;
         }
     }
 

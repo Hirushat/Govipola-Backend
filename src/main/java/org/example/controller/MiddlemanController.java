@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.dto.Middleman;
 import org.example.entity.MiddlemanEntity;
 import org.example.service.MiddlemanService;
 import org.springframework.web.bind.annotation.*;
@@ -21,18 +22,18 @@ public class MiddlemanController {
     }
 
     @GetMapping("byid/{id}")
-    public MiddlemanEntity getMiddlemanById(@PathVariable Long id) {
+    public Middleman getMiddlemanById(@PathVariable Long id) {
         return middlemanService.getMiddlemanById(id);
     }
 
     @PostMapping("/add")
-    public MiddlemanEntity createMiddleman(@RequestBody MiddlemanEntity middleman) {
+    public boolean createMiddleman(@RequestBody Middleman middleman) {
         return middlemanService.saveMiddleman(middleman);
     }
 
     @PutMapping("/update/{id}")
-    public MiddlemanEntity updateMiddleman(@PathVariable Long id, @RequestBody MiddlemanEntity middleman) {
-        MiddlemanEntity existingMiddleman = middlemanService.getMiddlemanById(id);
+    public boolean updateMiddleman(@PathVariable Long id, @RequestBody MiddlemanEntity middleman) {
+        Middleman existingMiddleman = middlemanService.getMiddlemanById(id);
         if (existingMiddleman != null) {
             existingMiddleman.setName(middleman.getName());
             existingMiddleman.setUserName(middleman.getUserName());
@@ -44,7 +45,7 @@ public class MiddlemanController {
             existingMiddleman.setCity(middleman.getCity());
             return middlemanService.saveMiddleman(existingMiddleman);
         } else {
-            return null;
+            return false;
         }
     }
 
