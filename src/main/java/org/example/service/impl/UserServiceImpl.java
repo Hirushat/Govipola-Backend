@@ -2,6 +2,7 @@ package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.example.dto.User;
+import org.example.entity.RiceStockEntity;
 import org.example.entity.UserEntity;
 import org.example.repository.UserRepository;
 import org.example.service.UserService;
@@ -81,4 +82,5 @@ public class UserServiceImpl implements UserService {
     public Boolean isExistUser(String userName) {
         return repository.existsByUserName(userName);
     }
+
 }

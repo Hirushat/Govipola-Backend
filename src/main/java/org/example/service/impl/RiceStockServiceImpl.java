@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -39,5 +40,20 @@ public class RiceStockServiceImpl implements RiceStockService {
             return null;
         }
 
+    }
+
+    // New method for updating the rice stock
+    public boolean updateRiceStock(Long stockId, RiceStockEntity riceStock) {
+        Optional<RiceStockEntity> existingStockOpt = riceStockRepository.findById(stockId);
+
+        if (existingStockOpt.isPresent()) {
+            RiceStockEntity existingStock = existingStockOpt.get();
+            existingStock.setPricePerKg(riceStock.getPricePerKg());
+            existingStock.setQuantityKg(riceStock.getQuantityKg());
+            riceStockRepository.save(existingStock);
+            return true;
+        } else {
+            return false; // Stock not found
+        }
     }
 }
