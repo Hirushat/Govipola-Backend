@@ -20,7 +20,7 @@ public class UserController {
         return service.getFarmers();
     }
 
-    @GetMapping("/get-all-middlemen")
+    @GetMapping("/get-all-intermediate")
     public List<UserEntity> getMiddleman(){
         return service.getMiddleman();
     }

@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
         List<UserEntity> middleman = new ArrayList<>();
 
         for(UserEntity userEntity : all){
-            if(userEntity.getUserType().equalsIgnoreCase("middleman")){
+            if(userEntity.getUserType().equalsIgnoreCase("intermediate")){
                 middleman.add(userEntity);
             }
         }
