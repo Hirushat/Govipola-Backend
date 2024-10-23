@@ -11,4 +11,5 @@ public interface RiceStockService {
     public List<RiceStockEntity> getRiceStocksByUser(Long userId);
     public boolean updateRiceStock(Long stockId, RiceStockEntity riceStock);
 
+    void deleteRiceStock(Long id);
 }

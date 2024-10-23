@@ -56,4 +56,9 @@ public class RiceStockServiceImpl implements RiceStockService {
             return false; // Stock not found
         }
     }
+
+    @Override
+    public void deleteRiceStock(Long id) {
+        riceStockRepository.deleteById(id);
+    }
 }

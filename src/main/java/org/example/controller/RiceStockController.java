@@ -40,4 +40,9 @@ public class RiceStockController {
         }
     }
 
+    @DeleteMapping("/delete/{id}")
+    public void deleteRiceStock(@PathVariable Long id) {
+         riceStockService.deleteRiceStock(id);
+    }
+
 }
