@@ -6,10 +6,10 @@ import org.example.entity.RiceStockEntity;
 import java.util.List;
 
 public interface RiceStockService {
-    public boolean addRiceStock(RiceStock riceStock, String username);
+    boolean addRiceStock(RiceStock riceStock, String username);
 
-    public List<RiceStockEntity> getRiceStocksByUser(Long userId);
-    public boolean updateRiceStock(Long stockId, RiceStockEntity riceStock);
+    List<RiceStockEntity> getRiceStocksByUser(Long userId);
+    boolean updateRiceStock(Long stockId, RiceStockEntity riceStock);
 
     void deleteRiceStock(Long id);
 }
